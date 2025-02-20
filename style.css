@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Work Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: italic;
 }
 
 @media print {
@@ -12,14 +15,26 @@
 .header {
     width: 8.25in;
     height: 4rem;
+    padding: 1rem;
     margin: auto;
-    border: 2px solid green;
-
+    margin-bottom: 1rem;
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    background-color: lightgray;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    
+}
+p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    /* border: 2px solid green; */
 }
 .page {
     margin: auto;
     width: 8.25in;
-    border: 4px solid red;
+    /* border: 4px solid red; */
     height: 10.75in;
 }
 .paper {
