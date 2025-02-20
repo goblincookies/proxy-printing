@@ -9,7 +9,7 @@
 
 @media print {
     .break { break-after:page }
-    .hidden {display: none;}
+    .hidden { display: none; }
 }
 
 .header {
