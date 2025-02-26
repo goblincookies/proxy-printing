@@ -16,7 +16,7 @@ function upload(e) {
         console.log("hello!");
         let fr = new FileReader();
         fr.onload = function () {
-            const thisPage = pageManager.addCardHere(); //document.getElementById( page+pageID );
+            const thisPage = pageManager.addCardHere();
             thisPage.appendChild( createHTML_Card( fr.result ) );
             listenersUpdate();
         };
@@ -25,7 +25,6 @@ function upload(e) {
 };
 
 function clearFile(e) {
-    console.log("this registering??");
     e.target.value = "";
 };
 
@@ -41,12 +40,13 @@ const pageManager = ( function () {
         console.log(`children elements ${thisPage.childElementCount} // max per page ${maxPerPage}`)
 
         if (thisPage.childElementCount >= maxPerPage) {
+            console.log("MAKE A NEW PAGE PLEASE!");
             pageID += 1;
+            thisPage.parentNode.classList.add("break");
             
             let pageParent = createHTML_Page( page+pageID );
             document.querySelector("body").appendChild( pageParent );
             thisPage = pageParent.querySelector(".paper");
-            console.log("MAKE A NEW PAGE PLEASE!");
         }
 
         return thisPage;
@@ -63,8 +63,6 @@ const pageManager = ( function () {
             if (pageA){ console.log("found page A") }
             if (pageB){ console.log("found page B") }
 
-
-
             if (pageA && pageB) {
 
                 while( (pageA.childElementCount < maxPerPage) && (pageB.childElementCount > 0) ) {
@@ -73,6 +71,7 @@ const pageManager = ( function () {
 
                 if (pageB.childElementCount <=0) {
                     pageB.parentNode.remove();
+                    pageA.parentNode.classList.remove("break");
                     pageID -= 1;
                 };
             };
@@ -135,7 +134,7 @@ function createHTML_Page( pageID ) {
     //     </div>
     // </div>
 
-    const pageDiv = createHTML("div", ["page", "break"]);
+    const pageDiv = createHTML("div", ["page"]);
     const paperDiv = createHTML("div", ["paper"]);
     paperDiv.id = pageID;
     pageDiv.appendChild( paperDiv );
@@ -158,10 +157,10 @@ function createHTML_Card( img ) {
     cardDiv.id = card+cardID;
     cardID += 1;
     const buttonsDiv = createHTML("div", ["buttons"]);
-    const deleteButton = createHTML("button", ["delete"]);
+    const deleteButton = createHTML("button", ["delete", "hidden"]);
     const deleteImg = createHTML("img", []);
     deleteImg.src = "./images/delete.svg";
-    const duplicateButton = createHTML("button", ["duplicate"]);
+    const duplicateButton = createHTML("button", ["duplicate", "hidden"]);
     const duplicateImg = createHTML("img", []);
     duplicateImg.src = "./images/duplicate.svg";
     const cardImg = createHTML("img", []);

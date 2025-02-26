@@ -8,8 +8,14 @@
 }
 
 @media print {
+    @page {
+        size: 8.5in 11in;
+        scale: 100%;
+    }
     .break { break-after:page }
     .hidden { display: none; }
+    .paper { margin: auto;}
+    .page { width: min-content; height: min-content;}
 }
 
 .header {
@@ -33,23 +39,28 @@ p {
 }
 .page {
     margin: auto;
-    width: 8.25in;
-    /* border: 4px solid red; */
-    height: 10.75in;
+    /* width: 8.5in; */
+    width: min-content;
+    height: min-content;
+    /* border: 1px solid red; */
+    /* background-color: red; */
 }
 .paper {
     width: min-content;
     height: min-content;
-    /* border: 4px solid green; */
+    /* border: 1px solid green; */
     margin: auto;
+    padding: 0;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-    grid-auto-rows: 1fr;
+    /* justify-content: start; */
+    grid-template-columns: 2.5in 2.5in 2.5in;
+    grid-template-rows: 3.5in;
+    grid-auto-rows: 3.5in;
     /* gap: .05in; */
 }
 
 .card {
+    /* outline: 1px solid black; */
     width: 2.5in;
     height: 3.5in;
     padding: 0;
