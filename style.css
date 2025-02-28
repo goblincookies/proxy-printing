@@ -28,15 +28,44 @@
     border-bottom-left-radius: 1rem;
     background-color: lightgray;
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
-    
+    gap: 4rem;
+}
+#card-file {
+    display: none;
+}
+.upload-button {
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    font-weight: 500;
+    outline: 1px solid #000;
+    cursor: pointer;
+    background-color: lightgray;
+    /* border-radius: 1rem; */
+}
+.upload-button:hover {
+    background-color: #fff;
+    outline: 2px solid #000;
 }
 p {
     font-size: 1.5rem;
     font-weight: 600;
     /* border: 2px solid green; */
 }
+.no-select {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.no-drag {
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+      
 .page {
     margin: auto;
     /* width: 8.5in; */
@@ -80,6 +109,13 @@ button {
     border: none;
     cursor: pointer;
     background-color: #60e612;
+    outline: 1px solid #000
+
+}
+button:hover {
+    /* outline: 1px solid #fff */
+    outline: 2px solid #000
+
 }
 button.delete {
     background-color: #fa2a57;
@@ -95,6 +131,6 @@ button.delete {
 .card:hover {
     .buttons {visibility: visible;}
     .buttons > button {
-        outline: 1px solid #000
+        /* outline: 1px solid #000 */
     }
 }
